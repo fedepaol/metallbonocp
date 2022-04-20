@@ -18,6 +18,12 @@ kubectl apply -k https://github.com/fedepaol/metallbonocp.git
 
 This kustomize overlay will deploy the [MetalLB Operator](https://github.com/metallb/metallb-operator/) with FRR enabled BGP.
 
+After deploying the operator, the metallb deployment must be enabled by creating a MetalLB instance: 
+
+```bash
+apply -f https://raw.githubusercontent.com/fedepaol/metallbonocp/master/metallb.yaml
+```
+
 When using the Operator, users must configure MetalLB via CRDs. The configmap will not be available and any attempt to change it will be
 overridden by the Operator.
 
